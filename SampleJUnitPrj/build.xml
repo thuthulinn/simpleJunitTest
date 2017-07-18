@@ -31,7 +31,7 @@
 		</javac>
 	</target>
 
-   <target name = "test" depends = "compile">
+   <target name = "TestMessageUtil" depends = "compile">
       <junit printsummary="true" haltonfailure="false">
 		<classpath refid = "classpath.test" />
          <formatter type = "xml" usefile = "true" />
