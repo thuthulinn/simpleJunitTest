@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class TestMessageUtil {
 
-	   String message = "Robert";	
+	   String message = "Hello!,Robert";	
 	   MessageUtil messageUtil = new MessageUtil(message);
 	   
 	   @Test
