@@ -1,0 +1,49 @@
+<project name = "SampleJUnitPrj" default = "test" basedir = ".">
+   <property name = "srcdir" location = "src" />
+   <property name="junit.output.dir" value="junit"/>
+   <property name = "full-compile" value = "true" />
+   <property name="LIB_HOME" value="D:/junit"/>
+	
+   <path id = "classpath.base"/>
+	
+   <path id = "classpath.test">
+	  <pathelement location="${LIB_HOME}/lib/junit-4.10.jar"/>
+      <pathelement location = "${testdir}" />
+      <pathelement location = "${srcdir}" />
+      <path refid = "classpath.base" />
+   </path>
+	
+   <target name = "clean" >
+      <delete verbose = "${full-compile}">
+         <fileset dir = "${testdir}" includes = "**/*.class" />
+      </delete>
+   </target>
+   
+   <target name="prepare" depends="clean" description="Prepare for build">
+	 <mkdir dir="${basedir}/${outputdir}" />
+   </target>
+   
+	<target name = "compile" depends = "prepare">
+		<javac srcdir = "${srcdir}" destdir = "${testdir}" 
+			verbose = "${full-compile}">
+			<classpath refid = "classpath.test"/>
+		</javac>
+	</target>
+
+    <target name="TestMessageUtil">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="TestMessageUtil" todir="${junit.output.dir}"/>
+            <classpath refid="SampleJUnitPrj.classpath"/>
+        </junit>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+</project>
