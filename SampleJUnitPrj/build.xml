@@ -31,7 +31,7 @@
 		</javac>
 	</target>
 
-   <target name = "TestMessageUtil" depends = "compile">
+   <target name = "test" depends = "compile">
       <junit printsummary="true" haltonfailure="false">
 		<classpath refid = "classpath.test" />
          <formatter type = "xml" usefile = "true" />
@@ -40,7 +40,7 @@
 	</target>
 	  
 	<target name="test-reports">
-     <junitreport todir="${outputdir}">
+     <junitreport tofile="TESTS-TestSuites.xml" todir="${outputdir}">
         <fileset dir="${outputdir}">
             <include name="TEST-*.xml" />
         </fileset>
