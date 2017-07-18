@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class TestMessageUtil {
 
-	   String message = "Hello,Robert";	
+	   String message = "Robert";	
 	   MessageUtil messageUtil = new MessageUtil(message);
 	   
 	   @Test
@@ -17,7 +17,7 @@ public class TestMessageUtil {
 	   @Test
 	   public void testSalutationMessage() {
 	      System.out.println("Inside testSalutationMessage()");
-	      message = "Hi!" + "Hello,Robert";
+	      message = "Hi!" + "Robert";
 	      assertEquals(message,messageUtil.salutationMessage());
 	   }
 }
