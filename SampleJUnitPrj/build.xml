@@ -40,7 +40,7 @@
 	</target>
 	  
 	<target name="test-reports">
-     <junitreport tofile="TESTS-TestSuites.xml" todir="${outputdir}">
+     <junitreport todir="${outputdir}">
         <fileset dir="${outputdir}">
             <include name="TEST-*.xml" />
         </fileset>
